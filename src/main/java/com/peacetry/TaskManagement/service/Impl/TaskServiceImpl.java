@@ -69,9 +69,9 @@ public class TaskServiceImpl implements TaskService {
         final Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Task not found"));
 
-        task.setDeletedAt(LocalDateTime.now());
 
-        taskRepository.save(task);
+          taskRepository.delete(task);
+
     }
 
     @Override
